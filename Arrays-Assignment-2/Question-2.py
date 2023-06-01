@@ -9,3 +9,11 @@
 # Output: 3
 
 # Explanation: Alice can only eat 6 / 2 = 3 candies. Since there are only 3 types, she can eat one of each type.
+
+def maxCandies(candyType):
+    unique_types = len(set(candyType))  
+    max_eat = len(candyType) // 2  
+    return min(unique_types, max_eat)  
+
+candyType = list(map(int,input().split()))
+print(maxCandies(candyType))

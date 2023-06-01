@@ -8,3 +8,23 @@
 # Output: 4
 
 # Explanation: 9 exists in nums and its index is 4
+
+def search(nums, target):
+    left = 0
+    right = len(nums) - 1
+
+    while left <= right:
+        mid = left + (right - left) // 2
+
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] > target:
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return -1
+
+nums = list(map(int,input().split()))
+target = int(input())
+print(search(nums, target))

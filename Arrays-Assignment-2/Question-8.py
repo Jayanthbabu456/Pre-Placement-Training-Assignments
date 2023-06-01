@@ -11,3 +11,27 @@
 # Output: 0
 
 # Explanation: The score is max(nums) - min(nums) = 1 - 1 = 0.
+
+def minimumScore(nums, k):
+    min_val = min(nums)
+    max_val = max(nums)
+
+    if max_val - min_val <= 2 * k:
+        return 0
+
+    mid = (min_val + max_val) // 2
+
+    for i in range(len(nums)):
+        if nums[i] <= mid - k:
+            nums[i] = mid - k
+        elif nums[i] >= mid + k:
+            nums[i] = mid + k
+
+    new_min = min(nums)
+    new_max = max(nums)
+
+    return new_max - new_min
+
+nums =list(map(int,input().split()))
+k =  int(input())
+print(minimumScore(nums, k))
