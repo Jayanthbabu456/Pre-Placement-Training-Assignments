@@ -12,3 +12,21 @@
 # Explanation: The array represents the integer 123.
 # Incrementing by one gives 123 + 1 = 124.
 # Thus, the result should be [1,2,4].
+
+def plusOne(digits):
+    n = len(digits)
+    carry = 1
+
+    for i in range(n - 1, -1, -1):
+        digitSum = digits[i] + carry
+        digits[i] = digitSum % 10
+        carry = digitSum // 10
+
+    if carry == 1:
+        digits.insert(0, 1)
+
+    return digits
+
+digits = list(map(int,input().split()))
+result = plusOne(digits)
+print(result)

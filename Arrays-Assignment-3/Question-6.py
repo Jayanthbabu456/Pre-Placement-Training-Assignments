@@ -7,3 +7,13 @@
 # Example 1:
 # Input: nums = [2,2,1]
 # Output: 1
+
+def singleNumber(nums):
+    result = 0
+    for num in nums:
+        result ^= num
+    return result
+
+nums = list(map(int,input().split()))
+result = singleNumber(nums)
+print(result)

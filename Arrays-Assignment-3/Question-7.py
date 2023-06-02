@@ -17,3 +17,25 @@
 # [4,49]
 # [51,74]
 # [76,99]
+
+def findMissingRanges(nums, lower, upper):
+    result = []
+    start = lower
+
+    for num in nums:
+        if num == start:
+            start += 1
+        elif num > start:
+            result.append([start, num-1])
+            start = num + 1
+
+    if start <= upper:
+        result.append([start, upper])
+
+    return result
+
+nums = list(map(int,input().split()))
+lower =int(input())
+upper =int(input()) 
+result = findMissingRanges(nums, lower, upper)
+print(result)
