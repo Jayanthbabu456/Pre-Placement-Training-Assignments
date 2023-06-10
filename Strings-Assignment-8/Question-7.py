@@ -11,3 +11,34 @@
 # **Input:** s = "3[a]2[bc]"
 
 # **Output:** "aaabcbc"
+
+def decodeString(s):
+    stack = []
+
+    for c in s:
+        if c.isdigit():
+            num = 0
+            while c.isdigit():
+                num = num * 10 + int(c)
+                c = s.pop(0)
+            stack.append(num)
+
+        if c == '[':
+            stack.append(c)
+
+        if c == ']':
+            decodedStr = ''
+            while stack[-1] != '[':
+                decodedStr = stack.pop() + decodedStr
+            stack.pop()  
+
+            k = stack.pop()  
+            decodedStr = decodedStr * k
+            stack.append(decodedStr)
+
+    return ''.join(stack[::-1])
+
+
+s = input()
+result = decodeString(s)
+print(result)  

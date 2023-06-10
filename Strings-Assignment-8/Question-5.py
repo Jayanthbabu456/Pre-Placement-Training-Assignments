@@ -20,3 +20,32 @@
 # **Explanation:**
 
 # The groups are "aa", "bb", and "ccc". This compresses to "a2b2c3".
+
+def compress(chars):
+    readPtr = writePtr = 0
+
+    while readPtr < len(chars):
+        currChar = chars[readPtr]
+        count = 1
+
+        while readPtr + 1 < len(chars) and chars[readPtr + 1] == currChar:
+            readPtr += 1
+            count += 1
+
+        chars[writePtr] = currChar
+        writePtr += 1
+
+        if count > 1:
+            countStr = str(count)
+            for digit in countStr:
+                chars[writePtr] = digit
+                writePtr += 1
+
+        readPtr += 1
+
+    return writePtr
+
+chars = ["a","a","b","b","c","c","c"]
+result = compress(chars)
+print(result) 
+print(chars[:result]) 
