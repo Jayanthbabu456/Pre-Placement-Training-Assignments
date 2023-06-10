@@ -11,3 +11,20 @@
 # Input : a = 5 d = 2 N = 10
 # Output : 23
 # The 10th term of the series is : 23
+
+def findNthTerm(a, d, N):
+    nthTerm = a + (N - 1) * d
+    return nthTerm
+
+
+a = int(input())
+d = int(input())
+N = int(input())
+result = findNthTerm(a, d, N)
+print(result)  
+
+a = int(input())
+d = int(input())
+N = int(input())
+result = findNthTerm(a, d, N)
+print(result)  

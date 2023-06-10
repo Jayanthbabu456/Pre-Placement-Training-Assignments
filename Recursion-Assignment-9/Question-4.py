@@ -10,3 +10,18 @@
 # Input: N = 2, P = 5
 
 # Output: 32
+
+def calculateExponent(N, P):
+    result = N ** P
+    return result
+
+
+N = int(input())
+P = int(input())
+result = calculateExponent(N, P)
+print(result) 
+
+N = int(input())
+P = int(input())
+result = calculateExponent(N, P)
+print(result)

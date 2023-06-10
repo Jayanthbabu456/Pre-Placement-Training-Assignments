@@ -11,3 +11,15 @@
 # Input  : 5 
 
 # Output : 15
+
+def sum(n):
+    return (n * (n + 1)) // 2
+
+
+n = int(input())
+result = sum(n)
+print(result)
+
+n = int(input())
+result = sum(n)
+print(result)  

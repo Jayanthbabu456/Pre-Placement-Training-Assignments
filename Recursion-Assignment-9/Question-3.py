@@ -11,3 +11,18 @@
 # Input: N = 4
 
 # Output: 24
+
+def factorial(N):
+    factorial = 1
+    for i in range(1, N+1):
+        factorial *= i
+    return factorial
+
+
+N = int(input())
+result = factorial(N)
+print(result)  
+
+N = int(input())
+result = factorial(N)
+print(result)
