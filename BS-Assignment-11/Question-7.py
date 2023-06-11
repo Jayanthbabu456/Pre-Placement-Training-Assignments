@@ -15,3 +15,45 @@
 # **Example 3:**
 # Input: nums = [], target = 0
 # Output: [-1,-1]
+
+def searchRange(nums, target):
+    left = -1
+    right = -1
+    
+    low = 0
+    high = len(nums) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if nums[mid] == target:
+            left = mid
+            high = mid - 1
+        elif nums[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    
+    low = 0
+    high = len(nums) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if nums[mid] == target:
+            right = mid
+            low = mid + 1
+        elif nums[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    
+    return [left, right]
+
+nums=list(map(int,input().split()))
+target=int(input())
+print(searchRange(nums))  
+
+nums=list(map(int,input().split()))
+target=int(input())
+print(searchRange(nums))  
+
+nums=list(map(int,input().split()))
+target=int(input())
+print(searchRange(nums))  

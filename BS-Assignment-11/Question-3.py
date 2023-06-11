@@ -14,3 +14,21 @@
 # Input: nums = [9,6,4,2,3,5,7,0,1]
 # Output: 8
 # Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
+
+def missingNumber(nums):
+    n = len(nums)
+    total = (n * (n + 1)) // 2
+    
+    for num in nums:
+        total -= num
+    
+    return total
+
+nums=list(map(int,input().split()))
+print(missingNumber(nums))  
+
+nums=list(map(int,input().split()))
+print(missingNumber(nums))  
+
+nums=list(map(int,input().split()))
+print(missingNumber(nums))  

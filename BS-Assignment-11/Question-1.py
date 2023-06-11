@@ -13,3 +13,26 @@
 # Input: x = 8
 # Output: 2
 # Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+
+def mySqrt(x):
+    left = 0
+    right = x
+    
+    while left <= right:
+        mid = (left + right) // 2
+        square = mid * mid
+        
+        if square == x:
+            return mid
+        elif square < x:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return right
+
+n=int(input())
+print(mySqrt(n))
+
+n=int(input())
+print(mySqrt(n))

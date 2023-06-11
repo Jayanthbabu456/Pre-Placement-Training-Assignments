@@ -8,3 +8,20 @@
 # Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 # Output: [9,4]
 # Explanation: [4,9] is also accepted.
+
+def intersection(nums1, nums2):
+    nums1Set = set(nums1)
+    intersection = []
+    
+    for num in nums2:
+        if num in nums1Set and num not in intersection:
+            intersection.append(num)
+    
+    return intersection
+nums1=list(map(int,input().split()))
+nums2=list(map(int,input().split()))
+print(intersection(nums1,nums2))
+
+nums1=list(map(int,input().split()))
+nums2=list(map(int,input().split()))
+print(intersection(nums1,nums2))  
