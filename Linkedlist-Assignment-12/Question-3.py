@@ -20,3 +20,53 @@
 # need to find 5th from the end. Since 'n'
 # is more than the number of nodes in the
 # linked list, the output is -1.
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+def find_nth_from_end(head, n):
+    main_ptr = head
+    ref_ptr = head
+
+    for _ in range(n):
+        if not ref_ptr:
+            return -1
+        ref_ptr = ref_ptr.next
+
+    while ref_ptr:
+        main_ptr = main_ptr.next
+        ref_ptr = ref_ptr.next
+
+    if not main_ptr:
+        return -1
+
+    return main_ptr.val
+
+
+# Example 1
+head1 = ListNode(1)
+head1.next = ListNode(2)
+head1.next.next = ListNode(3)
+head1.next.next.next = ListNode(4)
+head1.next.next.next.next = ListNode(5)
+head1.next.next.next.next.next = ListNode(6)
+head1.next.next.next.next.next.next = ListNode(7)
+head1.next.next.next.next.next.next.next = ListNode(8)
+head1.next.next.next.next.next.next.next.next = ListNode(9)
+
+result1 = find_nth_from_end(head1, 2)
+print(result1)
+
+
+# Example 2
+head2 = ListNode(10)
+head2.next = ListNode(5)
+head2.next.next = ListNode(100)
+head2.next.next.next = ListNode(5)
+
+result2 = find_nth_from_end(head2, 5)
+print(result2)
+

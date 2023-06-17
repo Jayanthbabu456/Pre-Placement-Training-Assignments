@@ -36,3 +36,85 @@
 # A loop is present.
 # If you remove it successfully,
 # the answer will be 1.
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+def detect_and_remove_loop(head):
+    slow = head
+    fast = head
+    loop_exists = False
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            loop_exists = True
+            break
+
+    if not loop_exists:
+        return head
+
+    length = 1
+    temp = slow.next
+    while temp != slow:
+        length += 1
+        temp = temp.next
+
+    ptr1 = head
+    ptr2 = head
+    for _ in range(length):
+        ptr2 = ptr2.next
+
+    while ptr1 != ptr2:
+        ptr1 = ptr1.next
+        ptr2 = ptr2.next
+
+    while ptr2.next != ptr1:
+        ptr2 = ptr2.next
+
+    ptr2.next = None
+
+    return head
+
+
+# Example 1
+head1 = ListNode(1)
+head1.next = ListNode(3)
+head1.next.next = ListNode(4)
+head1.next.next.next = head1.next
+
+result1 = detect_and_remove_loop(head1)
+current = result1
+while current:
+    print(current.val, end=" ")
+    current = current.next
+
+# Example 2
+head2 = ListNode(1)
+head2.next = ListNode(8)
+head2.next.next = ListNode(3)
+head2.next.next.next = ListNode(4)
+
+result2 = detect_and_remove_loop(head2)
+current = result2
+while current:
+    print(current.val, end=" ")
+    current = current.next
+
+# Example 3
+head3 = ListNode(1)
+head3.next = ListNode(2)
+head3.next.next = ListNode(3)
+head3.next.next.next = ListNode(4)
+head3.next.next.next.next = head3.next
+
+result3 = detect_and_remove_loop(head3)
+current = result3
+while current:
+    print(current.val, end=" ")
+    current = current.next
